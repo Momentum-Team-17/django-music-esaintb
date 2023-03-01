@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Album
+from .forms import AlbumForms
 
 # take in requests and generate responses
 
@@ -13,4 +14,5 @@ def list_albums(request):
 
 
 def add_album(request):
+    form = AlbumForm()
     return render(request), 'albums/add_album.html'
