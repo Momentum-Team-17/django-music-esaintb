@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Album
-from .forms import AlbumForms
+from .forms import AlbumForm
 
 # take in requests and generate responses
 
@@ -14,5 +14,10 @@ def list_albums(request):
 
 
 def add_album(request):
+    if request.method == 'POST':
+        album_form = AlbumForm(request.POST)
+        if album_form.is_valid():
+            album_form.save()
+            return redirect('home')
     form = AlbumForm()
-    return render(request), 'albums/add_album.html'
+    return render(request, 'albums/add_albums.html', {'form': form})
