@@ -12,5 +12,8 @@
     <h2>{{ album.title }}</h2>
     <p>{{ album.description }} </p>
     <h3> Genre: {{ album.genre}} </h3>
+    <a href="{% url 'edit_album' album.pk %}">Edit this entry</a>
+    <a href="{% url 'remove_album' album.pk %}">Remove this entry</a>
+
 </body>
 </html>

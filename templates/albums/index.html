@@ -9,8 +9,8 @@
 <body>
     <h1>Albums</h1>
     {% for album in albums %}
-    <p>{{ album }}</p>
+    <li><a href="{% url 'detail_album' album.pk %}">{{ album }}</a></li>
     {% endfor %}
-    <button><a href="{% url 'add_album' %}">Add a new album</a></button>
+    <a href="{% url 'add_album' %}">Add a new to-do</a>
 </body>
 </html>
